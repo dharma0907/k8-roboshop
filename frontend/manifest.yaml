@@ -97,7 +97,7 @@ spec:
       - name: catalogue
         image: dharma006/frontend:4.0.0
         volumeMounts:
-        - name: frontend
+        - name: nginx-config
           mountPath: /etc/nginx/nginx.conf
           subPath: nginx.conf
           readOnly: true # only reads the content
