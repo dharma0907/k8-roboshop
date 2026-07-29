@@ -1,3 +1,11 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mysql-root-password
+type: Opaque
+data:
+  MYSQL_ALLOW_EMPTY_PASSWORD: "eWVzCg=="
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -26,6 +34,9 @@ spec:
       containers:
       - name: mysql
         image: dharma006/mysql:4.0.0
+        env:
+        - name: mysql-root-password
+          value: "RoboShop@1"
 ---
 apiVersion: v1
 kind: Service
