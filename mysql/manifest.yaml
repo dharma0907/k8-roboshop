@@ -36,7 +36,7 @@ spec:
         image: dharma006/mysql:4.0.0
         args: ["--mysql-native-password=ON"]
         env:
-        - name: mysql-root-password
+        - name: MYSQL_ROOT_PASSWORD
           value: "RoboShop@1"
 ---
 apiVersion: v1
