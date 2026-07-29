@@ -1,0 +1,30 @@
+# we can mount nginx config file to pod using config mas
+config maps not only used for data, it also used for files as well
+
+so define config map
+# apiVersion: v1
+# kind: ConfigMap
+# metadata:
+#   name: nginx
+#   namespace: roboshop
+# data:
+#   nginx.conf: |  
+  #  pass the data entore data here
+
+  #  then add deployment file
+
+#Add deployment file and create volumes and volume mounts for config file
+# this is how we need to add
+      #  volumeMounts:
+      #   - name: nginx-config # name of volumes
+      #     mountPath: /etc/nginx/nginx.conf
+      #     subPath: nginx.conf
+      #     readOnly: true # only reads the content
+      # # this is pod level volumes
+      # volumes:
+      # - name: nginx-config # name of volumes
+      #   configMap:
+      #     name: nginx # name of confog map that we created
+      #     items:
+      #     - key: nginx.conf
+      #       path: nginx.conf

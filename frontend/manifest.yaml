@@ -94,18 +94,18 @@ spec:
         component: frontend
     spec:
       containers:
-      - name: catalogue
+      - name: frontend
         image: dharma006/frontend:4.0.0
         volumeMounts:
-        - name: nginx-config
+        - name: nginx-config # name of volumes
           mountPath: /etc/nginx/nginx.conf
           subPath: nginx.conf
           readOnly: true # only reads the content
       # this is pod level volumes
       volumes:
-      - name: nginx-config
+      - name: nginx-config # name of volumes
         configMap:
-          name: nginx
+          name: nginx # name of confog map that we created
           items:
           - key: nginx.conf
             path: nginx.conf
