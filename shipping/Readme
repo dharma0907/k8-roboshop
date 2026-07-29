@@ -1,0 +1,9 @@
+health checks
+=============
+1. startup probe
+2. readiness probe
+3. liveness probe
+
+startup probe -> is the container done with booting. this runs only 1 time.
+readiness probe -> is the container ready to accept traffic? kubernetes continously check whether pod and containers are ready or not, if not ready then removes service endpoints
+liveness probe -> long running applications usually will have some locks, kubernetes continously checks whether application is live or not, if not live it will restart the application/pod
